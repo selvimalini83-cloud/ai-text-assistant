@@ -2,8 +2,6 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import pickle
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
-import torch
 
 app = Flask(__name__)
 CORS(app)

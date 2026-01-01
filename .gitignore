@@ -5,3 +5,8 @@ __pycache__/
 models/
 *.pt
 *.bin
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
