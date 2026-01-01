@@ -1,5 +1,6 @@
 from sklearn.metrics.pairwise import cosine_similarity
 import torch
+import gradio as gr
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import pickle
@@ -76,6 +77,22 @@ def grammar_predict():
     return jsonify({
         "corrected_text": corrected
     })
+
+# Gradio interface
+iface = gr.Blocks()
+
+with iface:
+    gr.Markdown("## AI Text Assistant")
+    with gr.Tab("Spam Detector"):
+        spam_input = gr.Textbox(label="Enter text")
+        spam_output = gr.Textbox(label="Prediction")
+        gr.Button("Check Spam").click(fn=predict_spam, inputs=spam_input, outputs=spam_output)
+    with gr.Tab("Grammar Corrector"):
+        grammar_input = gr.Textbox(label="Enter sentence")
+        grammar_output = gr.Textbox(label="Corrected Sentence")
+        gr.Button("Check Grammar").click(fn=correct_grammar, inputs=grammar_input, outputs=grammar_output)
+
+iface.launch()
 
 
 
