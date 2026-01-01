@@ -90,7 +90,7 @@ with iface:
     with gr.Tab("Grammar Corrector"):
         grammar_input = gr.Textbox(label="Enter sentence")
         grammar_output = gr.Textbox(label="Corrected Sentence")
-        gr.Button("Check Grammar").click(fn=correct_grammar, inputs=grammar_input, outputs=grammar_output)
+        gr.Button("Check Grammar").click(fn=grammar_predict, inputs=grammar_input, outputs=grammar_output)
 
 iface.launch()
 
