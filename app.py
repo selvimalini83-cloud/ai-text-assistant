@@ -66,7 +66,7 @@ def predict_spam():
 
 # ------------------ GRAMMAR API ------------------
 @app.route("/grammar", methods=["POST"])
-def grammar_predict():
+def grammar():
     data = request.get_json()
     text = data.get("text", "").strip()
 
